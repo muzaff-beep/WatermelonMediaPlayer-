@@ -44,6 +44,7 @@ dependencies {
     implementation(platform("androidx.compose:compose-bom:2023.08.00"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.material3:material3")
+    implementation("com.google.android.material:material:1.11.0")
 
     // --- MEDIA3 (THE HEART OF WATERMELON) ---
     // Optimized for 4K playback and subtitle rendering

@@ -1,10 +1,7 @@
-// [ENGINEERING BLOCK: SETTINGS CONFIGURATION]
-// This file defines where Gradle should look for plugins and libraries.
-
 pluginManagement {
     repositories {
-        google()            // CRITICAL: Look here for the Android Application Plugin
-        mavenCentral()      // Look here for Kotlin and other standard plugins
+        google() // REQUIRED: Tells Gradle where the Android plugins live.
+        mavenCentral()
         gradlePluginPortal()
     }
 }
@@ -12,11 +9,12 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-        google()            // CRITICAL: Look here for Media3 and UI libraries
-        mavenCentral()      // Look here for everything else
+        google() // REQUIRED: Tells Gradle where Media3 and Google libraries live.
+        mavenCentral()
     }
 }
 
-rootProject.name = "WatermelonPlayer"
+// Defines the project name and connects the 'app' folder logic.
+rootProject.name = "WatermelonMediaPlayer"
 include(":app")
 

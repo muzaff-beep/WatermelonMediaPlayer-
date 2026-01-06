@@ -1,9 +1,19 @@
+
+# [SECURITY & HYGIENE]
+# Ignore Gradle build outputs and caches
+.gradle/
+build/
+app/build/
+
+# Ignore local configuration and secrets (Your Proxy Keys, etc.)
+local.properties
+.idea/
 *.iml
-.gradle
-/local.properties
-/.idea
+
+# Ignore Android Studio system files
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Ignore OS-specific files
 .DS_Store
-build
-/captures
-.externalNativeBuild
-.cxx

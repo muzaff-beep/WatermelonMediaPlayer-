@@ -1,8 +1,12 @@
-/**
- * TODO: Implement functionality for this component
- * 
- * This is a placeholder file created during project structure initialization.
- * Part of Watermelon MediaPlayer v1.4 (MENA Single Edition)
- * 
- * Package: com.watermelon.player.database
- */
+package com.watermelon.player.database
+
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "videos")
+data class VideoEntity(
+    @PrimaryKey val id: String,
+    val title: String,
+    val path: String,
+    val duration: Long
+)

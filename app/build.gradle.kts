@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("com.google.devtools.ksp") version "1.9.24-1.0.20" // FIXED - correct version
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -16,7 +16,9 @@ android {
         versionName = "1.0.0-core"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables { useSupportLibrary = true }
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
@@ -30,41 +32,42 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions { jvmTarget = "17" }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
 
     buildFeatures {
         compose = true
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.17" // Compatible with Kotlin 1.9.24
+        kotlinCompilerExtensionVersion = "1.5.14" // Compatible with Kotlin 1.9.24
     }
 }
 
 dependencies {
-    // Core AndroidX + Kotlin
+    // Core AndroidX
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.6")
 
-    // Jetpack Compose BOM + Core (latest as of Jan 2026)
+    // Jetpack Compose BOM + essentials
     val composeBom = platform("androidx.compose:compose-bom:2025.12.01")
     implementation(composeBom)
-
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     debugImplementation("androidx.compose.ui:ui-tooling")
 
-    // Material3
-    implementation("androidx.compose.material3:material3")
+    // Material3 (compatible with SDK 34)
+    implementation("androidx.compose.material3:material3:1.3.0")
 
     // Activity Compose
     implementation("androidx.activity:activity-compose:1.9.2")
 
-    // Navigation Compose (latest stable)
-    implementation("androidx.navigation:navigation-compose:2.9.6")
+    // Navigation Compose (compatible with SDK 34)
+    implementation("androidx.navigation:navigation-compose:2.8.3")
 
-    // Room
+    // Room Database
     val roomVersion = "2.6.1"
     implementation("androidx.room:room-runtime:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
@@ -77,7 +80,7 @@ dependencies {
     implementation("androidx.media3:media3-session:$media3Version")
     implementation("androidx.media3:media3-common:$media3Version")
 
-    // Google Fonts for font()
+    // Google Fonts support
     implementation("androidx.compose.ui:ui-text-google-fonts")
 
     // Material Components

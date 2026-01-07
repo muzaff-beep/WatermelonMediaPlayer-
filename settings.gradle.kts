@@ -1,20 +1,12 @@
-pluginManagement {
-    repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-    }
-}
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-        // Optional mirrors for faster downloads / bypass issues in some regions
-        maven { url = uri("https://maven.aliyun.com/repository/public") }
-        maven { url = uri("https://maven.myket.ir") }
-    }
+plugins {
+    id("org.jetbrains.kotlin.android") version "1.9.24" apply false
+    id("com.google.devtools.ksp") version "1.9.24-1.0.20" apply false
+    id("com.android.application") version "8.7.0" apply false
 }
 
-rootProject.name = "WatermelonMediaPlayer-"
-include(":app")
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
